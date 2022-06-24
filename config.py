@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
+FLASK_ENV = os.getenv('FLASK_ENV')
 # configuration for database and session management key
 SQLALCHEMY_DATABASE_URI =  os.getenv('SQLALCHEMY_DATABASE_URI')                          
 SECRET_KEY = os.getenv('SECRET_KEY')
