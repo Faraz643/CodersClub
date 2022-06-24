@@ -1,0 +1,72 @@
+html,
+body{
+    background-color: #303134 !important;
+}
+li{
+    color: white !important;
+}
+
+li:hover {
+    background-color: #65c19f;
+    /* color: #202124 !important; */
+    border-radius: 5px;
+  }
+  .card-container{
+      /* background-color: #fff; */
+      min-height: 80vh;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      margin-top: 5%;
+  }
+  .main-card{
+      /* min-height: 10vh; */
+      width: 80%;
+      background-color: #211D37;
+      /* #28223F */
+      border-radius: 5px;
+  }
+  h3{
+      color: rgb(211, 205, 205);
+      text-align: center;
+      margin: 5%;
+  }
+  mark{
+      background-color: white;
+      padding: 1.5%;
+  }
+  .event-details{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      line-height: 250%;
+      color: rgb(192, 188, 188);
+      /* justify-content: center; */
+      align-items: center;
+  }
+  .event-description{
+      background-color: #38324b6b;
+      color: rgb(192, 188, 188);
+      padding: 3%;
+  }
+ .sub-heading{
+      color:#06BDCD;
+      /* text-align: center; */
+      font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  }
+  /* .sub-heading{
+      text-align: ;
+  } */
+  p{
+      text-align: center;
+  }
+ .participate{
+     /* width: 20%; */
+     /* height: 30px; */
+     text-decoration: none;
+     color: white;
+     border: 2px solid #06BDCD ;
+     border-radius: 3px;
+     margin: 5%;
+     padding: 0.5%;
+ }

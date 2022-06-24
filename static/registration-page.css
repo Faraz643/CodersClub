@@ -1,0 +1,102 @@
+.parent-container {
+  display: flex;
+  /* flex-direction: row; */
+  justify-content: center;
+  flex-wrap: wrap;
+  min-height: 80vh;
+  /* width: 87.5%; */
+  padding: 50px;
+}
+.image-container {
+  background-image: url(../static/Assets/form-side-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 80vh;
+  min-width: 35vw;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(59, 58, 57);
+  justify-content: space-around;
+  color: rgb(235, 228, 168);
+  min-height: 80vh;
+  width: 45vw;
+  padding: 20px;
+  font-size: 2vw;
+}
+input {
+  width: 50%;
+  height: 25px;
+  font-size: 18px;
+  margin-left: 10%;
+  margin-top: 4%;
+  margin-bottom: 3%;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+}
+input:focus {
+  box-shadow: #4dd0e1 0 0 10px;
+}
+button {
+  background-color: transparent;
+  border: 2px solid rgb(117, 223, 117);
+  color: white;
+  width: 50%;
+  border-radius: 40px;
+  margin-left: 10%;
+  font-size: 1rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  align-self: center;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgb(117, 223, 117);
+}
+footer{
+    margin-top: 0 !important; 
+}
+.auto-fill
+{
+  color: rgb(215, 208, 208) !important;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 80%;
+}
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width: 700px)
+{
+form {
+ font-size: 80%;
+ width: 95vw;
+ }
+ .image-container{
+  min-height: 10vh;
+  min-width: 95vw;
+
+ }
+ input{
+  width: 90%;
+}
+
+}
+@media only screen
+and (min-device-width : 400px) 
+{
+form {
+ font-size: 100%;
+ }
+ input{
+   width: 90%;
+ }
+}
+@media only screen
+and (min-device-width : 1000px) 
+{
+
+ input{
+   width: 50%;
+ }
+}

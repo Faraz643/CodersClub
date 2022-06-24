@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration</title>
+    <link rel="stylesheet" href="../static/base.css">
+    <link rel="stylesheet" href="../static/registration-page.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="{{url_for('home')}}"> <li class="l1">Home</li> </a> 
+          <a href="/problems?question=c&level=easy">  <li class="l2">Problems</li> </a> 
+          <a href="{{url_for('all_events')}}">  <li class="center-bg-red">! Upcoming Contest ! </li> <a>  
+          <a href="{{url_for('contactUs')}}">  <li class="l4">Contact</li> </a> 
+          <a href="{{url_for('aboutUs')}}"> <li class="l5">About</li>  </a> 
+        </ul>
+    </nav>
+    {% with messages = get_flashed_messages(category_filter=["event-register-success"]) %}
+    {% if messages %}
+    
+    {% for messages in messages %}
+   <h5 style="text-align: center;"> <span style="color: #4fb64f;  text-align: center;" >&nbsp;&nbsp;{{messages}}</span></h5>
+{% endfor %}
+       
+    {% endif %}
+{% endwith %}
+    <section class="form-area">
+        <div class="parent-container">
+            <div class="image-container"></div>
+            <div class="form-container">
+                <form method="post" autocomplete="off">
+                    <label for="participant-name">*Participant Name</label>
+                    <input type="text" id="participant-name" name="participant-name" required autofocus>
+                    
+                    <label for="enrollment-id">*Enrollment Id</label>
+                    <input type="text" id="enrollment-id" name="enrollment-id" required>
+                    
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="optional">
+                    
+                    <label for="branch-name">*Branch</label>
+                    <input type="text" id="branch-name" name="branch-name" required>
+
+                    <label for="current-semester">*Semester</label>
+                    <input type="text" id="current-semester" name="current-semester" required>
+
+                    <label for="contest-name">Contest Name <span class="auto-fill">(auto fill)</span></label>
+                    <input type="text" id="contest-name" name="contest-name" value="{{contest_main_id.name}}" required>
+                    
+                    <label for="contest-id">Contest ID <span class="auto-fill">(auto fill)</span></label>
+                    <input type="text" id="contest-id" name="contest-id" value="{{contest_main_id.contest_id}}" required>
+                        <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="footer">
+              Designed and Developed By
+               <p>
+                  ~ Faraz Rasool
+              </p>
+              
+        </p>
+        
+    </footer>
+</body>
+</html>

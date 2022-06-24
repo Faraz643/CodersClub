@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-witdh, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="../static/dsb-style.css" />
+    <link type="text/css" rel="stylesheet" href="../static/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aee2d4e9ed.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="sidebar">
+        <div class="sidebar-brand">
+            <h2></i> <span>Coder's Club</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li><a href="/dashboard/home"><i class="fa fa-desktop"></i> <span>Dashboard</span></a></li>
+                <li><a href="/dashboard/add-event"><i class="fa fa-file-o"></i> <span>Add Event</span></a></li>
+                <li><a href="/dashboard/add-question"><i class="fa fa-file"></i> <span>Add Questions</span></a></li>
+                <li class="status-active"><a href="/dashboard/all-questions?question=c"><i class="fa fa-stack-exchange"></i> <span>All Questions</span></a></li>
+                <!-- <li><a href="#"><i class="fa fa-users"></i> <span>Participants</span></a></li> -->
+                <li><a href="{{url_for('myProfile')}}"><i class="fa fa-reddit-alien"></i> <span>My Profile</span></a></li>
+                <li><a href="javascript:void(0)" onclick="location.href='/logout'"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <Section id="main-content">
+        <header>
+            <div class="header-left">
+                <h2>
+                 Dashboard
+                </h2>
+            </div>
+            <div class="header-left header-serach">
+            </div>
+            
+            <div class="clear"></div>
+        </header>
+        <div class="clear"></div>
+       <div class="main-content-info container no-a">
+        <a href="/dashboard/all-questions?question=java"> <div class="card">
+                <h2 class="cus-num cus-pro">{{number_in_java.id}}</h2><br>
+                <p>Java Questions</p>
+            </div> </a>
+            <a href="/dashboard/all-questions?question=python"> <div class="card">
+                <h2 class="cus-num cus-pro">{{number_in_python.id}}</h2><br>
+                <p>Python Questions</p>
+            </div></a>
+            <a href="/dashboard/all-questions?question=c"> <div class="card">
+                <h2 class="cus-num cus-pro">{{number_in_c.id}}</h2><br>
+                <p>C Questions</p>
+            </div></a>
+            <a href="/dashboard/all-questions?question=cpp"><div class="card">
+                <h2 class="cus-num cus-pro">{{number_in_cpp.id}}</h2><br>
+                <p>C++ Questions</p> 
+            </div></a>
+            <div class="clear"></div>
+        </div>
+        <div class="content-pro-par container">
+            <div class="pro-table" id="questions">
+                <div class="recent-project">
+                    <div class="rec-pro-h">
+                        {% if que_language.language == 'Java'  %}
+                        <h2>JAVA</h2>
+                        {% elif que_language.language == 'Python'  %}
+                        <h2>PYTHON</h2>
+                        {% elif que_language.language == 'C'  %}
+                        <h2>C</h2>
+                        {% elif que_language.language == 'C++'  %}
+                        <h2>C++</h2>
+                        
+                        {% endif %}
+                    </div>
+                    
+                    {% if questions == 'all language' %}
+                    <div class="clear"></div>
+                    {% else %}
+                    <div class="see-all">
+                        <a href="/dashboard/all-questions?question={{questions}}&level=hard">   <button>Hard</button> </a>
+                    </div>
+                    <div class="see-all">
+                        <a href="/dashboard/all-questions?question={{questions}}&level=medium"> <button>Medium</button> </a>
+                    </div>
+                    <div class="see-all">
+                       <a href="/dashboard/all-questions?question={{questions}}&level=easy"> <button>Easy</button></a>
+                    </div>
+                    {% endif %}
+                </div>
+                <table style="width:100%" class="table-data-f1">
+                   
+                    <tr>
+                        <th>Title</th>
+                        <th>Level</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for all_question in all_question %}
+                    <tr class="table-data-f2">
+                        <td>{{all_question.question_title}}</td>
+                        <td>{{all_question.level}}</td>
+                        <td class="cnt-info-td"><a href="/dashboard/edit-question/{{all_question.language}}/{{all_question.id}}"><i class="fa fa-edit"></i></a><a href="/delete-question/{{all_question.language}}/{{all_question.id}}"><i class="fa fa-trash"></i></a></td>
+                      {% endfor %}  
+                    </tr>
+                </table>
+               
+            </div>
+            <!-- <div class="pro-cus">
+                <div class="recent-project">
+                    <div class="rec-pro-h">
+                        <h2>All Customers</h2>
+                    </div>
+                    <div class="see-all">
+                        <button>See all</button>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <table style="width:100%">
+                    <tr>
+                        <th>Pic</th>
+                        <th>Name</th>
+                        <th>Contact</th>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Smith Jhon</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Jhon Doe</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Mr Lewerce</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Damin Roe</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Smith Jhon</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Jhon Doe</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Damin Roe</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Smith</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Smith</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Smith</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                    <tr>
+                        <td><img class="table-img" src="../Assets/user.png"/></td>
+                        <td>Mr Lewerce</td>
+                        <td class="cnt-info-td"><a href="tel:9800121212"><i class="fa fa-phone"></i></a><a href="tel:9800121212"><i class="fa fa-envelope"></i></a><a href="tel:9800121212"><i class="fa fa-map-marker"></i></a></td>
+                    </tr>
+                </table>
+            </div> -->
+            <!-- <div class="clear"></div> -->
+        </div>
+    </Section>
+    <div class="clear"></div>
+
+    <script type="text/javascript" src="../static/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/external.js"></script>
+
+</body>
+
+</html>

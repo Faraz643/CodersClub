@@ -1,0 +1,83 @@
+nav {
+  min-height: auto;
+  border-radius: 0;
+  padding-bottom: 7px;
+}
+body, html{
+  background-color: #442e5d!important;
+}
+.center-image {
+  background-image: url(../static/Assets/laptop-image.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 350px;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  margin-top: 100px;
+}
+table {
+  height: 200px;
+  font-size: 25px;
+  line-height: 30px;
+  width: 1000px;
+  max-width: 1500px;
+}
+.table-heading {
+  background-color: rgb(170, 160, 160);
+}
+.dark {
+  background-color: #c3ccc9;
+}
+.light {
+  background-color: #e5ecea;
+}
+button {
+  background-color: rgb(54, 49, 49);
+  color: white;
+  border: 0;
+  height: 40px;
+  width: 70px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+button:hover {
+  cursor: pointer;
+  background-color: rgb(80, 77, 77);
+}
+
+a {
+  color: white;
+}
+td {
+  padding: 15px;
+}
+th {
+  padding: 15px;
+}
+.dropdown-content {
+  padding: 12px 16px;
+    outline: none;
+    float: right;
+    margin-right: 1%;
+    position: relative;
+    bottom: 30px;
+}
+.problem-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+h3 {
+  text-align: center;
+  margin: 5px;
+}
+caption{
+  background-color: #c82046;
+}
+pre{
+  font-size: 70%;
+  margin-top: 2%;
+  float: right;
+}

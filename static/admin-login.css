@@ -1,0 +1,171 @@
+* {
+    font-family: "Poppins";
+  }
+  
+  body {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    /* overflow-y: hidden; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #dde5f4;
+    height: 100vh;
+    margin: 5%;
+  }
+  
+  .screen-1 {
+    margin-top: 2%;
+    min-width: 25vw;
+    /* max-height: 70vh; */
+    background: #f1f7fe;
+    padding: 2em;
+    border-radius: 30px;
+    box-shadow: 0 0 0.5em #454343;
+    margin-bottom: 10%;
+
+  }
+  .screen-1 .email {
+    background: white;
+    box-shadow: 0 0 2em #e6e9f9;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5em; */
+    border-radius: 20px;
+    color: #4d4d4d;
+    margin-top: -3em;
+    
+  }
+  .screen-1 .email input {
+    outline: none;
+    border: none;
+  }
+  .screen-1 .email input::-moz-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .email input:-ms-input-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .email input::placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .email ion-icon {
+    color: #4d4d4d;
+    margin-bottom: -0.2em;
+  }
+  .screen-1 .password {
+    background: white;
+    box-shadow: 0 0 2em #e6e9f9;
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    /* gap: 0.5em; */
+    border-radius: 20px;
+    color: #4d4d4d;
+  }
+  .screen-1 .password input {
+    outline: none;
+    border: none;
+  }
+  .screen-1 .password input::-moz-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .password input:-ms-input-placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .password input::placeholder {
+    color: black;
+    font-size: 0.9em;
+  }
+  .screen-1 .password ion-icon {
+    color: #4d4d4d;
+    margin-bottom: -0.2em;
+    
+  }
+  .screen-1 .password .show-hide {
+    margin-right: -5em;
+  
+  }
+  .screen-1 .login {
+    padding: 1em;
+    background: #3e4684;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+  }
+  .screen-1 .footer {
+    /* display: inline-block; */
+    font-size: 0.9em;
+    color: #5e5e5e;
+    gap: 14em;
+    padding-bottom: 1em;
+    margin-top: 10%;
+  }
+  
+.footer-link-2{
+  float: right;
+}
+
+  .screen-1 .footer span {
+    cursor: pointer;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  .logo-image{
+      margin-left: 27%;
+      background-image: url(../static/Assets/brand-logo.png);
+      min-height: 15vh;
+      max-width: 40%;
+      background-position: center;
+      background-size:contain;
+      background-color: #414785;
+      border-radius: 100%;
+      background-repeat: no-repeat;
+      margin-top: -7%;
+      margin-bottom: 30%;
+  }
+  form{
+    /* padding: 2em; */
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .forgo-pass{
+    margin-top: 10%;
+  }
+  a, a:hover, a:focus, a:active{
+    text-decoration: none;
+    color: inherit;
+  }
+  .screen-1-2{ 
+    min-height: 100vh !important;
+    margin-top: 10% !important;
+    min-width: 28vw !important;
+ 
+   }
+
+.logo-image-2{
+  margin-left: 31%;
+  background-image: url(../static/Assets/brand-logo.png);
+  /* float: right; */
+  min-height: 15vh;
+  max-width: 37%;
+  background-position: center;
+  background-size:contain;
+  background-color: #414785;
+  border-radius: 100%;
+  background-repeat: no-repeat;
+  margin-top: -7%;
+  margin-bottom: 25% !important;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coders' Club</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/base.css">
+    <style>
+        .color-white{
+            color: rgba(235, 216, 47, 0.829);
+            margin: 5%;
+            text-shadow: 900px;
+            line-height: 150%;
+            font-size: 0.9em;
+            text-shadow: rgb(72, 73, 73) 3px 8px;
+            text-align: center;
+        }
+        .footer-admin{
+            margin-bottom: 3%;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+            <a href="/problems?question=c&level=easy"><li class="l1">Problems</li></a>
+            <a href="{{url_for('all_events')}}"><li class="center-bg-red">! Upcoming Contest !</li></a>
+            <a href="{{url_for('aboutUs')}}"><li class="l5">About</li></a> 
+            <a href="{{url_for('contactUs')}}"><li class="l4">Contact</li></a>
+            </ul>
+           
+        </nav>
+
+        <div class="center-heading"><h1>404</h1><p>Oops! This Page Could Not Be Found</p>
+            
+        </div>
+    </header>
+    <p class="color-white">SORRY, BUT THE PAGE YOU ARE LOOKING FOR DOES NOT EXIST, HAVE BEEN REMOVED. NAME CHANGED OR IS TEMPORARILY UNAVAILABLE .</p>
+
+
+
+      <footer>
+        <div class="footer-admin">
+            
+            <a href="{{url_for('adminLogin')}}" class="admin-login admin-ml">Admin Sign In</a> 
+            
+            <a href="{{url_for('adminRegistration')}}" class="admin-login">Admin Sign Up</a>
+            
+          </div>
+          
+      </footer>
+      
+</body>
+</html>

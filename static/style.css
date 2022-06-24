@@ -1,0 +1,209 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,700&family=Josefin+Sans&family=Pacifico&family=Palette+Mosaic&display=swap");
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+li {
+  color: white;
+  list-style: none;
+  padding: 13px;
+  color: #65c19f;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  min-height: 15vh;
+}
+
+a {
+  text-decoration: none;
+}
+li:hover {
+  background-color: #65c19f;
+  color: #fdf2db;
+  border-radius: 5px;
+}
+.center-bg-red {
+  background-color: #eb1648;
+  color: #fdf2db;
+  border-radius: 5px;
+}
+.center-bg-red:hover {
+  background-color: #da2851 !important;
+}
+nav {
+  border-radius: 0 0 350px 350px;
+}
+
+header {
+  background-color: #5d4679;
+  border-radius: 0 0 500px 500px;
+  min-height: 70vh;
+  width: 100%;
+}
+.center-heading {
+  color: #f33461;
+  min-height: 10vh;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 45px;
+}
+.after-heading {
+  color: #fdf2db;
+  /* min-height: 10vh; */
+  font-size: 1.8em;
+  font-family: "palette mosaic";
+  text-align: center;
+  margin-top: 45px;
+}
+.logo-image {
+  display: inline-block;
+  background-image: url(../static/Assets/brand-logo.png);
+  
+  min-height: 34vh;
+  width: 55vw;
+  background-repeat: no-repeat;
+  position: relative;
+  left: 25%;
+  /* top: 10vh; */
+  background-position: center;
+  background-size: 70%;
+}
+.timeline {
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: 120px;
+  z-index: 1;
+}
+.circle {
+  background-color: white;
+  width: 150px;
+  height: 150px;
+  background: black;
+  border-radius: 50%;
+}
+.circle1 {
+  background-image: url(../static/Assets/circle4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+}
+.circle2 {
+  background-image: url(../static/Assets/circle3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+}
+
+.circle3 {
+  background-image: url(../static/Assets/circle2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+}
+.circle4 {
+  background-image: url(../static/Assets/circle1.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+}
+.dashed {
+  width: 10px;
+  height: 40px;
+  background-color: #c82046;
+}
+.first-image {
+  background-image: url(../static//Assets/character-1.png);
+  /* background-color: #fff; */
+  min-height: 50vh;
+  min-width: 43vw;
+  float: right;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+  right: 15vw;
+}
+.second-image {
+  background-image: url(../static/Assets/character-2.png);
+  /* background-color: #fff; */
+  min-height: 50vh;
+  min-width: 40vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: left;
+  position: relative;
+  left: 15vw;
+}
+.third-image {
+  background-image: url(../static/Assets/character-3.png);
+  min-height: 40vh;
+  min-width: 30vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  float: right;
+  margin-right: 20vw;
+}
+/* footer {
+  background-color: #2e2929;
+  color: rgb(203, 211, 133); */
+  /* z-index: 2; */
+  /* margin-top: 30vh;
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center !;
+  flex-direction: column;
+  line-height: 200%;
+  width: 100%;
+} */
+mark {
+  background-color: #2e2929;
+  color: #f33461;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0 20px 0 0;
+  line-height: 70px;
+}
+.m2 {
+  background-color: #f33461;
+  color: #2e2929;
+  text-align: center;
+  padding: 10px;
+  border-radius: 0 0 0 20px;
+}
+
+@media only screen 
+and (min-device-width: 320px) 
+and (max-device-width: 900px){
+  .logo-image {
+    min-height: 15vh;
+    width: 85vw;
+    position: relative;
+    left: 10%
+}
+header{
+  min-height: 10vh;
+}
+.second-image {
+  left: 95%;
+  z-index: -1;
+}
+.first-image {
+
+  z-index: -1;
+}
+.third-image {
+  z-index: -1;
+}
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coders' Club</title>
+    <link rel="stylesheet" href="../static/base.css" />
+    <link rel="stylesheet" href="../static/about-us-page.css" />
+    <style>
+      footer {
+  background-color: #2e2929;
+  color: rgb(203, 211, 133);
+  margin-top: 30vh;
+  min-height: 20vh;
+  display: flex;
+  justify-content:center !important;
+  align-items:center;
+  flex-direction: column;
+  line-height: 200%; 
+   width: 100%;
+  font-size: 0.8em;
+  /* margin-bottom: 20%; */
+}
+.footer{
+  margin-right: 2%;
+  /* margin-bottom: 5%; */
+
+}
+  </style>
+  </head>
+  <body>
+    <nav>
+        <ul>
+          
+          <a href="{{url_for('home')}}">  <li class="center-bg-white">Home</li> <a>  
+          
+        </ul>
+       
+    </nav>
+    
+    <div class="page-style"></div>
+    <section>
+      <div class="bg-white">
+        <div class="card-style">
+            
+            <p>
+               ~ From Coders Club
+            </p>
+            
+          <div class="timeline">
+              
+            <div class="circle"></div>
+            <div class="dashed"></div>
+            <div class="circle"></div>
+            <div class="dashed"></div>
+            <div class="circle"></div>
+          </div>
+         
+        </div>
+        <img src="../static/Assets/on-card-image.png">
+      </div>
+      
+    </section>
+    <footer>
+        <p class="footer">
+              Designed and Developed By
+               <p>
+                  ~ Faraz Rasool
+              </p></p>
+    </footer>
+  </body>
+</html>

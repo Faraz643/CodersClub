@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contest Details</title>
+    <link rel="stylesheet" href="/static/contest-details.css">
+    <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="/problems?question=c&level=easy">  <li class="l1">Problems</li> </a> 
+          <!-- <a href="/contest-registration">  <li class="l2">Contest Registration</li> </a>  -->
+          <a href="{{url_for('all_events')}}">  <li>Upcoming Contest</li> <a>  
+          <a href="{{url_for('contactUs')}}">  <li class="l4">Contact</li> </a> 
+          <a href="{{url_for('aboutUs')}}"> <li class="l5">About</li>  </a> 
+        </ul>
+    </nav>
+    <div class="card-container">
+        <div class="main-card">
+            <h3> <mark>{{event.name}}</mark></h3>
+            <div class="event-details">
+                <span>
+                   <span class="sub-heading"> Language:</span> {{event.language}}
+                       
+                   </span>
+                <span>
+                    <span class="sub-heading"> Date:</span> {{event.date}}                    
+                </span>
+                <span>
+                    <span class="sub-heading">  Time:</span> {{event.time}}
+                    
+                </span>
+                
+                <span>
+                    <span class="sub-heading">Venue</span>: {{event.venue}} 
+                    
+                </span>
+                <span>
+                    <span class="sub-heading">Registration Fee</span>: {{event.registration_fee}}
+                    
+                </span>
+                <div class="event-description">
+                    <p class="sub-heading">
+                        Details
+                    </p>
+                    {{event.details|safe}}</div>
+                    <a href="/contest-registration/q_event?event%20id={{event.contest_id}}" class="participate"> <p> Participate </p></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

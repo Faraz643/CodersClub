@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upcoming Contests</title>
+    <link rel="stylesheet" href="../static/contests.css">
+    <link rel="stylesheet" href="../static/base.css">
+    <style>
+        footer {
+    background-color: #2e2929;
+    color: rgb(203, 211, 133);
+    margin-top: 30vh;
+    min-height: 20vh;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction: column;
+    line-height: 200%;
+    width: 100%;
+    font-size: 0.6em;
+  }
+  .no-mr{
+    margin-top: 1%;
+  }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+          <a href="{{url_for('home')}}">  <li class="l1">Home</li> </a> 
+          <a href="/problems?question=c&level=easy">  <li class="l2"> Problems</li></a>
+          <a href="{{url_for('aboutUs')}}"> <li class="l5">About</li>  </a> 
+          <a href="{{url_for('contactUs')}}">  <li class="l4">Contact</li> </a> 
+        </ul>
+    </nav>
+    <div class="rocket-image">
+    </div>
+    <p>Ready For The Challenge? Compete With Others </p>
+    <hr>
+   
+    <div class="card-container">
+    
+        {% for all_events in events %}
+        <div class="card-flex">
+            
+            <div class="card-right">{{all_events.name}} </div>
+
+            <div class="card-left">
+                {% if  all_events.status == 'Completed' %}
+               <span class="event-status old">Completed</span> 
+                {% else %}
+                <span class="event-status new">HOT🔥</span>  
+                {% endif %}
+                <span> Date:
+                    {{all_events.date}}
+                </span>
+                <span> Time:
+                    {{all_events.time}}
+                </span>
+                <span> Venue:
+                    {{all_events.venue}} 
+                </span>
+
+                <a href="/contest/{{all_events.contest_id}}" target="_blank"> <p> See Details </p></a>
+            </div>
+        </div>
+        {% endfor %}
+        
+    
+    </div>
+    <footer>
+        <p class="footer">Designed and Developed By<p class="no-mr">~ Faraz Rasool</p></p>
+        
+    </footer>
+</body>
+</html>

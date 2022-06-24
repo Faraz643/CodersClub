@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coders' Club</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="../static/base.css">
+    
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+            <a href="/problems?question=c&level=easy"><li class="l1">Problems</li></a>
+            <a href="{{url_for('all_events')}}"><li class="center-bg-red">! Upcoming Contest !</li></a>
+            <a href="{{url_for('aboutUs')}}"><li class="l5">About</li></a> 
+            <a href="{{url_for('contactUs')}}"><li class="l4">Contact</li></a>
+            </ul>
+           
+        </nav>
+        <div class="center-heading"><p><mark>INTEGRAL </mark>&nbsp;<mark class="m2">UNIVERSITY</mark></p></div>
+        <div class="after-heading"><p>Presents</p></div>
+        <div class="logo-image img-fluid"></div>
+    </header>
+    <div class="timeline">
+        <div class="dashed"><div class="first-image"></div></div>
+        <div class="circle circle4"></div>  
+        <div class="dashed"></div>
+        <div class="circle circle3"><div class="second-image"></div></div>
+        <div class="dashed"></div>
+        <div class="circle circle2"></div>
+        <div class="dashed"><div class="third-image"></div></div>
+        <div class="circle circle1"></div>
+        <div class="dashed"></div>
+    </div>
+      <footer>
+        <div class="footer-admin">
+            
+            <a href="{{url_for('adminLogin')}}" class="admin-login admin-ml">Admin Sign In</a> 
+            
+            <a href="{{url_for('adminRegistration')}}" class="admin-login">Admin Sign Up</a>
+            
+          </div>
+          <p class="footer">
+                Designed and Developed By
+                 <p class="footer">
+                    ~ Faraz Rasool
+                </p>
+          </p>
+          
+      </footer>
+      
+</body>
+</html>

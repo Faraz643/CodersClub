@@ -1,0 +1,91 @@
+body,html
+ {
+  background-image: linear-gradient(to right, #8724cd, #a626d5, #8724cd) !important;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+section{
+    position: relative;
+    bottom: 24vh;
+}
+.bg-white {
+  background-color: #0A1C30;
+  min-height: 70vh;
+  margin: 0 80px 0 80px;
+  border-radius: 0 0 10px 10px;
+  border-radius: 40px 40px 0px 0px;
+  position: relative;
+  bottom: 16vh;
+}
+.card-style {
+  background-color: rgb(116, 103, 233);
+  min-height: 20vh;
+  border-radius: 0 0 1000px 1000px;
+  display: block;
+}
+
+.timeline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  top: 10vh;
+}
+
+.circle {
+  width: 13px;
+  height: 13px;
+  background: rgb(196, 69, 69);
+  border-radius: 50%;
+}
+
+.dashed {
+  width: 5px;
+  height: 10px;
+  background-color: #4bcbc8;
+}
+p{
+    text-align: center;
+    position: relative;
+    top: 4vh;
+    font-size: 1.1em;
+}
+.page-style{
+    background-image: url(../static/Assets/page-style-format.png);
+    background-position: center;
+    background-size: cover;
+    min-height: 50vh;
+    margin: 0 80px 0 80px;
+    position: sticky;
+    top: 25vh;
+    background-repeat: no-repeat;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+img{
+    height: 150px;
+    margin: 90px 0 0 0;
+}
+.center-bg-white{
+    background-color: #fff;
+    border-radius: 20px 20px 20px 0
+}
+.center-bg-white:hover{
+    background-color: #65c19f;
+    border-radius: 20px 20px 20px 0
+}
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 900px){
+  .bg-white {
+    margin: 0 0 0 0;
+  }
+  .page-style{
+
+    margin: 0 0 0 0;
+}
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-witdh, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="../static/dsb-style.css" />
+    <link type="text/css" rel="stylesheet" href="../static/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aee2d4e9ed.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="sidebar">
+        <div class="sidebar-brand">
+            <h2></i> <span>Coder's Club</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li class="status-active"><a href="#"><i class="fa fa-desktop"></i> <span>Dashboard</span></a></li>
+                <li><a href="/dashboard/add-event"><i class="fa fa-file-o"></i> <span>Add Event</span></a></li>
+                <li><a href="/dashboard/add-question"><i class="fa fa-stack-exchange"></i> <span>Add Questions</span></a></li>
+                <li><a href="/dashboard/all-questions?question=c&level=java"><i class="fa fa-stack-exchange"></i> <span>All Questions</span></a></li>
+                <!-- <li><a href="#"><i class="fa fa-users"></i> <span>Participants</span></a></li> -->
+                <li><a href="{{url_for('myProfile')}}"><i class="fa fa-reddit-alien"></i> <span>My Profile</span></a></li>
+                <li><a href="javascript:void(0)" onclick="location.href='/logout'"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <Section id="main-content">
+        <header>
+            <div class="header-left">
+                <h2>
+                 Dashboard
+                </h2>
+                
+                
+            </div>
+            {% with messages = get_flashed_messages(category_filter=["pass-change-success"]) %}
+            {% if messages %}
+               
+            {% for messages in messages %}
+                            <span style="color: #4d9c39; font-size:24pt;" >&nbsp;&nbsp;{{messages}}</span>
+               {% endfor %}
+               
+            {% endif %}
+        {% endwith %}
+    
+            <div class="header-left header-serach">
+            </div>
+            <div class="header-left header-profile">
+                <img  style="background-image: url(../static/user-uploads/{{current_user.profile}}); background-size:cover; background-color: rgba(161, 161, 161, 0.877); background-repeat: no-repeat; margin-right: 3%; margin-top: 1%; background-position:center;"  width="10px" height="50px" class="img-responsive"/>
+            </div>
+
+            <div class="clear"></div>
+        </header>
+        
+        <div class="main-content-info container">
+            <div class="card first-card">
+                
+                <h2>{{total_events.id}}</h2><br>
+                <p>Total Events Till Date</p>
+            </div>
+            {% for all_events in all_events %}
+            <div class="card">
+                <h2>{{ all_events.name }}</h2><br>
+                <a href="/dashboard/participants?contest id={{all_events.contest_id}}"><p>See Participants</p></a>
+            </div>
+            {% endfor %}
+            <div class="clear"></div>
+            <br><br>
+        </div>
+        
+    </Section>
+    <div class="clear"></div>
+
+    <script type="text/javascript" src="../static/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/external.js"></script>
+
+</body>
+
+</html>

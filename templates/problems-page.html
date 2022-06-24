@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problems</title>
+    <link rel="stylesheet" href="../static/base.css"> 
+    <link rel="stylesheet" href="../static/problems-page.css">
+    <style>
+      footer {
+  background-color: #2e2929;
+  color: rgb(203, 211, 133);
+  margin-top: 30vh;
+  min-height: 20vh;
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction: column;
+  line-height: 200%;
+  width: 100%;
+  font-size: 0.8em;
+}
+.footer{
+  margin-right: 2%;
+
+}
+  </style>
+</head>
+<body>
+        <nav>
+            <ul>
+              <a href="/">  <li class="l1">Home</li> </a> 
+              <a href="{{url_for('all_events')}}"> <li class="center-bg-red">! Upcoming Contest !</li></a>
+              <a href="{{url_for('aboutUs')}}"> <li class="l5">About</li>  </a> 
+              <a href="{{url_for('contactUs')}}">  <li class="l4">Contact</li></a> 
+            </ul>
+        </nav>
+        <section class="mid-content">
+            <div class="center-image"></div>
+        </section>
+        <!-- <h2 class="divider line glow">Numericals</h2> -->
+        <section class="problem-table">
+            <table id="questions">
+                <caption><h4>Numericals</h4>
+                  <select for="level" class="dropdown-content" onchange="location = this.value;">
+                    {% if que_language.language == 'Java' %}
+                   
+                    <option name="language" value="#question">Select Level</option>
+                    <option name="language" value="/problems?question=java&level=all#questions">All</option>
+                    <option name="language" value="/problems?question=java&level=easy#questions">Easy</option>
+                    <option name="language" value="/problems?question=java&level=medium#questions">Medium</option>
+                    <option name="language" value="/problems?question=java&level=hard#questions">Hard</option>
+                    <!-- <option name="language" value="/problems?question=java">All</option> -->
+                    {% elif que_language.language == 'C' %}
+                    <option name="language" value="#question">Select Level</option>
+                    <option name="language" value="/problems?question=c&level=all#questions">All</option>
+                    <option name="language" value="/problems?question=c&level=easy#questions">Easy</option>
+                    <option name="language" value="/problems?question=c&level=medium#questions">Medium</option>
+                    <option name="language" value="/problems?question=c&level=hard#questions">Hard</option>
+                    {% elif que_language.language == 'C++' %}
+                    <option name="language" value="#question">Select Level</option>
+                    <option name="language" value="/problems?question=cpp&level=all#questions">All</option>
+                    <option name="language" value="/problems?question=cpp&level=easy#questions">Easy</option>
+                    <option name="language" value="/problems?question=cpp&level=medium#questions">Medium</option>
+                    <option name="language" value="/problems?question=cpp&level=hard#questions">Hard</option>
+                    {% elif que_language.language == 'Python' %}
+                    <option name="language" value="#question">Select Level</option>
+                    <option name="language" value="/problems?question=python&level=all#questions">All</option>
+                    <option name="language" value="/problems?question=python&level=easy#questions">Easy</option>
+                    <option name="language" value="/problems?question=python&level=medium#questions">Medium</option>
+                    <option name="language" value="/problems?question=python&level=hard#questions">Hard</option>
+                    {% endif %}
+                    
+                    
+                  </select>
+                <select for="language" class="dropdown-content" onchange="location = this.value;">
+                {% if que_language.language == 'Java' %}
+                <option name="language" value="/problems?question=java#questions">JAVA</option>
+                  <!-- <option name="language" value="/problems/all-questions">All Language</option> -->
+                  <option name="language" value="/problems?question=c#questions">C</option>
+                  <option name="language" value="/problems?question=cpp#questions">C++</option>
+                  <option name="language" value="/problems?question=python#questions">PYTHON</option>
+                 {% elif que_language.language == 'Python' %} 
+                 <option name="language" value="/problems?question=python#questions">PYTHON</option>
+                 <!-- <option name="language" value="/problems/all-questions">All Language</option> -->
+                <option name="language" value="/problems?question=c#questions">C</option>
+                <option name="language" value="/problems?question=cpp#questions">C++</option>
+                <option name="language" value="/problems?question=java#questions">JAVA</option>
+                 {% elif que_language.language == 'C' %} 
+                 <option name="language" value="/problems?question=c#questions">C</option>
+                 <!-- <option name="language" value="/problems/all-questions">All Language</option> -->
+                 <option name="language" value="/problems?question=cpp#questions">C++</option>
+                 <option name="language" value="/problems?question=java#questions">JAVA</option>
+                 <option name="language" value="/problems?question=python#questions">PYTHON</option>
+                 {% elif que_language.language == 'C++' %} 
+                 <option name="language" value="/problems?question=cpp#questions">C++</option>
+                 <option name="language" value="/problems?question=c#questions">C</option>
+                 <option name="language" value="/problems?question=python#questions">PYTHON</option>
+                 <!-- <option name="language" value="/problems/all-que#questionsstions">All Language</option> -->
+                <option name="language" value="/problems?question=java">JAVA</option>
+                {% elif que_language == 'All' %}
+                <!-- <option name="language" value="/problems/all-questions">All Language</option> -->
+                <option name="language" value="/problems?question=c#questions">C</option>
+                <option name="language" value="/problems?question=cpp#questions">C++</option>
+                <option name="language" value="/problems?question=python#questions">PYTHON</option>
+                <option name="language" value="/problems?question=c++#questions">JAVA</option>
+                {% endif %}
+                </select>
+                </caption>
+                <tr class="table-heading">
+                  <th>ID</th>
+                  <th>STATEMENT</th>
+                  <th></th>
+                </tr>
+                {% for all_question in all_question %}
+                <tr class="dark">
+                  <td>{{all_question.id}}</td>
+                  <td>{{all_question.question_title|safe}} <p><pre>[{{all_question.level}}]</pre></p></td>
+                  <td class="run-btns"><a href="{{all_question.question_link}}"><button>Try</button></a></td>
+                 
+                </tr>
+                {% endfor %}
+                <!-- <tr class="light">
+                  <td>2</td>
+                  <td>Fibonacci Lite</td>
+                    <td class="run-btns"><a href="https://www.hackerrank.com/challenges/sum-numbers-c/problem?isFullScreen=true"><button>Try</button></a></td>
+                </tr>
+                <tr class="dark">
+                    <td>1</td>
+                    <td>Fibonacci Returns</td>
+                    <td class="run-btns"><a href="https://www.hackerrank.com/challenges/functions-in-c/problem?isFullScreen=true"><button>Try</button></a></td>
+                   
+                  </tr> -->
+              </table>
+        </section>
+        <footer>
+            <p class="footer">
+                  Designed and Developed By
+                   <p>
+                      ~ Faraz Rasool
+                  </p>
+            </p>
+            
+        </footer>
+</body>
+</html>

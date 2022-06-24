@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard-Edit Question</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-witdh, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="/static/add-event.css" />
+    <link type="text/css" rel="stylesheet" href="/static/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aee2d4e9ed.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
+</head>
+
+<body>
+
+    <section id="sidebar">
+        <div class="sidebar-brand">
+            <h2></i> <span>Coder's Club</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li><a href="/dashboard/home"><i class="fa fa-desktop"></i> <span>Dashboard</span></a></li>
+                <li><a href="/dashboard/add-event"><i class="fa fa-file-o"></i><span>Add Event</span></a></li>
+                <li><a href="/dashboard/add-question"><i class="fa fa-stack-exchange"></i> <span>Add Questions</span></a></li>
+                <li class="status-active"><a href="/dashboard/all-questions?question=c"><i class="fa fa-stack-exchange"></i> <span>All Questions</span></a></li>
+                <li><a href="{{url_for('myProfile')}}"><i class="fa fa-reddit-alien"></i> <span>My Profile</span></a></li>
+                <li><a href="javascript:void(0)" onclick="location.href='/logout'"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <Section id="main-content">
+        <header>
+            <div class="header-left">
+                <h2>
+                 Dashboard
+                </h2>
+            </div>
+            <div class="header-left header-serach">
+                <div class="serach-par">
+                    
+                </div>
+            </div>
+            <div class="header-left header-profile">
+                <!-- <img src="../Assets/user.png" class="img-responsive" /> -->
+                <h4>Faraz Rasool</h4>
+                <p>Admin</p>
+            </div>
+            <div class="clear"></div>
+        </header>
+        <div class="clear"></div>
+        <div class="main-content-info container">
+            
+            <div class="card question-card">
+                
+                <form method="post">
+                    
+                    <label for="question-title">Question Title</label>
+                    <input type="text" id="question-title" name="question-title" class="event-name" value="{{update.question_title}}" required>
+                    <label for="question-statement">Question Statement</label> <br>
+                    {{ ckeditor.create(name="question-statement", value= update.question_statement ) }}
+                    <br><br>
+                    <label for="input">Sample Input (if any)</label> <br>
+                  
+                    {{ckeditor.create(name="input", value= update.sample_input ) }} 
+                    <br>
+                    <label for="input">Sample Output</label> <br>
+                    {{ckeditor.create(name="output", value= update.sample_output ) }} <br>
+                    <label for="Language">Language</label>
+                    <div class="radio-tags">
+                        <input type="radio" id="All" name="language" value="All">
+                    <label for="All"> All </label>
+                    <input type="radio" id="C" name="language" value="C" required>
+                    <label for="C"> C</label>
+                    <input type="radio" id="C++" name="language" value="C++">
+                    <label for="C++"> C++ </label>
+                    <input type="radio" id="Python" name="language" value="Python">
+                    <label for="Python"> Python </label>
+                    <input type="radio" id="Java" name="language" value="Java">
+                    <label for="Java"> Java </label>
+                    </div>
+                    <label for="difficulty-level">Difficulty Level</label>
+                    <select name="difficulty-level" class="dropdown-content" >
+                        <option value="Easy">Easy</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                    <input type="submit" value="Add" >
+
+                </form>
+                {{ ckeditor.load() }}
+ {{ ckeditor.config(name='question-statement') }}
+ {{ ckeditor.config(name='input', height=50) }}
+ {{ ckeditor.config(name='output', height=50) }}
+            </div>
+        </div> 
+            </div>
+        </div>
+    </Section>
+
+    <script type="text/javascript" src="../static/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/external.js"></script>
+</body>
+
+</html>

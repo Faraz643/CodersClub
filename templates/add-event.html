@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-witdh, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="../static/add-event.css" />
+    <link type="text/css" rel="stylesheet" href="../static/font-awesome.min.css" />
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/aee2d4e9ed.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <section id="sidebar">
+        <div class="sidebar-brand">
+            <h2></i> <span>Coder's Club</span></h2>
+        </div>
+        <div class="sidebar-menu">
+            <ul>
+                <li><a href="/dashboard/home"><i class="fa fa-desktop"></i> <span>Dashboard</span></a></li>
+                <li class="status-active"><a href="#"><i class="fa fa-file-o"></i><span>Add Event</span></a></li>
+                <li><a href="/dashboard/add-question"><i class="fa fa-stack-exchange"></i> <span>Add Questions</span></a></li>
+                <!-- <li><a href="/dashboard/all-question"><i class="fa fa-stack-exchange"></i> <span>Questions</span></a></li> -->
+                <li><a href="/dashboard/all-questions?question=c"><i class="fa fa-stack-exchange"></i> <span>All Questions</span></a></li>
+                <li><a href="{{url_for('myProfile')}}"><i class="fa fa-reddit-alien"></i> <span>My Profile</span></a></li>
+                <li><a href="javascript:void(0)" onclick="location.href='/logout'"><i class="fa fa-sign-out"></i> <span>Logout</span></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <Section id="main-content">
+        <header>
+            <div class="header-left">
+                <h2>
+                 Dashboard
+                </h2>
+            </div>
+            <div class="header-left header-serach">
+                <div class="serach-par">
+                </div>
+            </div>
+            
+            <div class="clear"></div>
+        </header>
+        <div class="clear"></div>
+        <div class="main-content-info container">
+            <div class="card">
+                
+
+                
+
+                <form method="post">
+                    {% with messages = get_flashed_messages(category_filter=["new-event-added"]) %}
+                    {% if messages %}
+                       
+    {% for messages in messages %}
+               <span style="color: #f8f53d; font-size:24pt; text-align: center;" >&nbsp;&nbsp;{{messages}}</span>
+  {% endfor %}
+                       
+                    {% endif %}
+                {% endwith %}
+                    <label for="event-name" >Event Name</label>
+                    <input type="text" id="event-name" name="event-name" class="event-name" >
+                    <label for="Language">Language</label>
+                    <div class="radio-tags">
+                    <input type="radio" id="All" name="language" value="No Restrictions" checked>
+                    <label for="All"> No Restrictions </label>
+                    <input type="radio" id="C" name="language" value="C">
+                    <label for="C"> C</label>
+                    <input type="radio" id="C++" name="language" value="C++">
+                    <label for="C++"> C++ </label>
+                    <input type="radio" id="Python" name="language" value="Python">
+                    <label for="Python"> Python </label>
+                    <input type="radio" id="Java" name="language" value="Java">
+                    <label for="Java"> Java </label>
+                    </div>
+                    <label for="venue">Venue</label>
+                    <input type="text" id="venue" name="venue" required >
+                    <label for="date">Date</label>
+                    <input type="date" id="date" name="date" >
+                    <label for="time">Time</label>
+                    <input type="time" id="time" name="time">
+                    <label for="registration-fee">Registration Fee</label>
+                    <input type="text" id="registration-fee" name="registration-fee">
+                    <label for="event-details">Event Details*</label> <br>
+                    {{ ckeditor.create(name="event-details")}} <br>
+                    <button type="submit">Add</button>
+
+                </form>
+                {{ ckeditor.load() }}
+                {{ ckeditor.config(name='event-details', height=200) }}
+
+            </div>
+        </div> 
+         
+            <div class="pro-cus">
+                <div class="recent-project">
+                    <div class="clear"></div>
+                </div>
+                <div class="rec-pro-h">
+                    {% with messages = get_flashed_messages(category_filter=["event-deleted"]) %}
+                                         {% if messages %}
+                                            
+                            {% for messages in messages %}
+                                       <span>  <span style="color: #f8533d; text-align: center;" >&nbsp;&nbsp;{{messages}}</span> </span>
+                            {% endfor %}
+                                            
+                                         {% endif %}
+                                     {% endwith %}
+                    <h2>Events</h2>
+                    
+                </div>
+                <table style="width:100%">
+                    {%  for all_events in all_events %}
+                    <tr>
+                        {% if all_events.status == 'Scheduled' %}
+                        <td>
+                            
+                            <b>{{all_events.name}}</b>
+                            <p class="fs-20">[{{all_events.status}}]<a href="/event/{{all_events.id}}?status=Completed"> Mark as Completed</a></p>
+                            <td class="cnt-info-td"><a href="/contest/{{all_events.contest_id}}"><i class="fa fa-eye"></i></a><a href="/dashboard/edit-event/{{all_events.id}}"><i class="fa fa-edit"></i></a><a href="/delete-event/{{all_events.id}}"><i class="fa fa-trash"></i></a></td>
+                        </td>{% else %}
+                        <td><b>{{all_events.name}}</b>
+                        <p class="fs-20">[{{all_events.status}}]</p>
+                        </td><td class="cnt-info-td"><a href="/contest/{{all_events.contest_id}}"><i class="fa fa-eye"></i></a><a href="/dashboard/edit-event/{{all_events.id}}"><i class="fa fa-edit"></i></a><a href="/delete-event/{{all_events.id}}"><i class="fa fa-trash"></i></a></td>
+                        {% endif %}
+                        
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </Section>
+
+    <script type="text/javascript" src="../static/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../static/external.js"></script>
+
+</body>
+
+</html>
