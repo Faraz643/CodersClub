@@ -38,7 +38,7 @@ app.config['MAIL_USE_SSL'] = True
 app.config['MAX_CONTENT_LENGTH'] = 3072 * 3072 
 app.config['UPLOAD_EXTENSIONS'] = ['.jpg', '.jpeg', ',png']  
  # all the other configurations are done in config.py file 
- 
+
 
 mail = Mail(app)
 random_code = random.randint(0000, 9999)
